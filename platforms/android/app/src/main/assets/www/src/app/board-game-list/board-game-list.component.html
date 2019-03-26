@@ -1,0 +1,5 @@
+<mat-grid-list cols="2">
+  <mat-grid-tile *ngFor="let boardGame of boardGames; let i = index">
+    <app-board-game [(boardGame)]="boardGame" (deleted)=onDeleted(i)></app-board-game>
+  </mat-grid-tile>
+</mat-grid-list>
