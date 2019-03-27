@@ -1,0 +1,8 @@
+mat-grid-tile {
+  background-color: rgb(65, 200, 200);
+}
+
+a.nostyle {
+  text-decoration: inherit;
+  color: inherit;
+}
