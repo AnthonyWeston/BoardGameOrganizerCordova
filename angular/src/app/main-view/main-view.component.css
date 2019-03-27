@@ -1,5 +1,6 @@
 mat-grid-tile {
   background-color: rgb(65, 200, 200);
+  text-align: center;
 }
 
 a.nostyle {
