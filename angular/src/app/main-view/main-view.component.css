@@ -1,9 +1,14 @@
 mat-grid-tile {
   background-color: rgb(65, 200, 200);
   text-align: center;
+  border-radius: 15px;
 }
 
 a.nostyle {
   text-decoration: inherit;
   color: inherit;
+}
+
+mat-grid-list {
+  margin: 0.25em;
 }

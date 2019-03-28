@@ -1,18 +1,21 @@
-<img width="40%" src="{{boardGame.imageUrl}}" />
+<div class="flex">
+  <img width="50%" src="{{boardGame.imageUrl}}" />
+  <div>
+    <div>
+      <a routerLink="{{'/boardgames/' + boardGame.id + '/edit'}}">
+        <button mat-icon-button color="primary">
+          <mat-icon>edit</mat-icon>
+        </button>
+      </a>
+    </div>
+    <div>
+      <button mat-icon-button color="warn" (click)="delete()">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>
 <h4>{{boardGame.title}}</h4>
 <p>Type: {{boardGame.type}} </p>
 <p>Players: {{boardGame.minPlayers}} - {{boardGame.maxPlayers}}</p>
-<p>
-  Notes: <textarea type="text" [disabled]="notesDisabled" placeholder="Notes"
-    [(ngModel)]="boardGame.notes"></textarea>
-  <button mat-mini-fab color="primary" *ngIf="notesDisabled" (click)="notesDisabled = !notesDisabled">
-    <mat-icon>edit</mat-icon>
-  </button>
-  <button mat-mini-fab color="primary" *ngIf="!notesDisabled" (click)="notesDisabled = !notesDisabled">
-      <mat-icon>save</mat-icon>
-  </button>
-</p>
-
-<button mat-fab color="warn" (click)="delete()">
-  <mat-icon>delete</mat-icon>
-</button>
+<p>  Notes: {{boardGame.notes}}</p>
