@@ -46,7 +46,7 @@ export class BoardGameListService {
   }
 
   getBoardGames() {
-    return this.boardGames;
+    return this.boardGames.sort((game1: any, game2: any) => game1.title > game2.title);
   }
 
   getBoardGame(id: number) {
@@ -59,6 +59,7 @@ export class BoardGameListService {
   }
 
   deleteBoardGame(id: number) {
-    this.boardGames.splice(id, 1);
+    const index = this.boardGames.map((boardGame: any) => boardGame.id).indexOf(id);
+    this.boardGames.splice(index, 1);
   }
 }
