@@ -57,4 +57,8 @@ export class BoardGameListService {
     const id = newBoardGame.id;
     this.boardGames[id] = newBoardGame;
   }
+
+  deleteBoardGame(id: number) {
+    this.boardGames.splice(id, 1);
+  }
 }

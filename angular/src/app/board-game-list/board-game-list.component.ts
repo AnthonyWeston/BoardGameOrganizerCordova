@@ -12,16 +12,19 @@ export class BoardGameListComponent implements OnInit {
   boardGames: Array<any>;
   selectedId: number;
 
-  constructor(private boardGameListService: BoardGameListService, private activatedRoute: ActivatedRoute) {
+  constructor(private boardGameListService: BoardGameListService, private activatedRoute: ActivatedRoute) { }
 
+  delete(id: number) {
+    this.boardGameListService.deleteBoardGame(id);
+    this.refreshBoardGames();
   }
 
-  onDeleted(index: number) {
-    this.boardGames.splice(index, 1);
+  refreshBoardGames() {
+    this.boardGames = this.boardGameListService.getBoardGames();
   }
 
   ngOnInit() {
-    this.boardGames = this.boardGameListService.getBoardGames();
+    this.refreshBoardGames();
 
     const idParam = this.activatedRoute.snapshot.paramMap.get('id')
     if (idParam) {

@@ -1,8 +1,8 @@
-<mat-expansion-panel *ngFor="let boardGame of boardGames; let i = index" [expanded]="boardGame.id === selectedId">
+<mat-expansion-panel *ngFor="let boardGame of boardGames" [expanded]="boardGame.id === selectedId">
   <mat-expansion-panel-header>
     <mat-panel-title>
         {{boardGame.title}}
     </mat-panel-title>
   </mat-expansion-panel-header>
-  <app-board-game [boardGame]="boardGame" (deleted)=onDeleted(i)></app-board-game>
+  <app-board-game [boardGame]="boardGame" (deleted)=delete(boardGame.id)></app-board-game>
 </mat-expansion-panel>
