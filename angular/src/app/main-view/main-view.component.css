@@ -12,3 +12,7 @@ a.nostyle {
 mat-grid-list {
   margin: 0.25em;
 }
+
+app-main-view {
+  color: red;
+}

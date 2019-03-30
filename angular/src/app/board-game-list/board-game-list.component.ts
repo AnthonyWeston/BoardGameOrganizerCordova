@@ -6,15 +6,18 @@ import { BoardGameListService } from './board-game-list.service'
   templateUrl: './board-game-list.component.html',
   styleUrls: ['./board-game-list.component.css']
 })
-export class BoardGameListComponent {
+export class BoardGameListComponent implements OnInit {
   boardGames: Array<any>;
 
-  constructor(boardGameListService: BoardGameListService) {
-    this.boardGames = boardGameListService.getBoardGames();
+  constructor(private boardGameListService: BoardGameListService) {
+
   }
 
   onDeleted(index: number) {
     this.boardGames.splice(index, 1);
   }
 
+  ngOnInit() {
+    this.boardGames = this.boardGameListService.getBoardGames();
+  }
 }

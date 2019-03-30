@@ -12,7 +12,8 @@ import { MatFormFieldModule} from '@angular/material/form-field';
 import { FormsModule} from '@angular/forms';
 import { MainViewComponent } from './main-view/main-view.component';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { MatDialogModule } from '@angular/material'
+import { MatDialogModule } from '@angular/material';
+import { BoardGameEditComponent } from './board-game-edit/board-game-edit.component'
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { MatDialogModule } from '@angular/material'
     BoardGameComponent,
     MainViewComponent,
     DialogDeleteBoardGameComponent,
+    BoardGameEditComponent,
   ],
   entryComponents: [
     DialogDeleteBoardGameComponent,

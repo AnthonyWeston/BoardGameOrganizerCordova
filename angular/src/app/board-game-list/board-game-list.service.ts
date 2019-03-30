@@ -48,4 +48,13 @@ export class BoardGameListService {
   getBoardGames() {
     return this.boardGames;
   }
+
+  getBoardGame(id: number) {
+    return this.boardGames[id];
+  }
+
+  saveBoardGame(newBoardGame: any) {
+    const id = newBoardGame.id;
+    this.boardGames[id] = newBoardGame;
+  }
 }
