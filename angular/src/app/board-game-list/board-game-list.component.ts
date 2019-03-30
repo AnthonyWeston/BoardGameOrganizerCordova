@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BoardGameListService } from './board-game-list.service';
 import { ActivatedRoute } from '@angular/router';
+import { BoardGame } from '../board-game'
 
 
 @Component({
@@ -9,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./board-game-list.component.css']
 })
 export class BoardGameListComponent implements OnInit {
-  boardGames: Array<any>;
+  boardGames: BoardGame[];
   selectedId: number;
 
   constructor(private boardGameListService: BoardGameListService, private activatedRoute: ActivatedRoute) { }

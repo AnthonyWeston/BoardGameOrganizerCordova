@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
+import { BoardGame } from '../board-game'
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class BoardGameListService {
-  boardGames: any;
+  boardGames: BoardGame[];
 
   constructor() {
     this.boardGames = [{
@@ -46,7 +48,7 @@ export class BoardGameListService {
   }
 
   getBoardGames() {
-    return this.boardGames.sort((game1: any, game2: any) => game1.title > game2.title);
+    return this.boardGames.sort((game1: BoardGame, game2: BoardGame) => game1.title.localeCompare(game2.title));
   }
 
   getBoardGame(id: number) {

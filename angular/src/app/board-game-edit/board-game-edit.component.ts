@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { BoardGameListService } from '../board-game-list/board-game-list.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import { BoardGame } from '../board-game'
+
 
 @Component({
   selector: 'app-board-game-edit',
@@ -9,11 +11,11 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class BoardGameEditComponent implements OnInit {
   id: number;
-  boardGame: any;
+  boardGame: BoardGame;
   title: string;
   type: string;
-  minPlayers: string;
-  maxPlayers: string;
+  minPlayers: string | number;
+  maxPlayers: string | number;
   notes: string;
 
   constructor(private boardGameService: BoardGameListService, private route: ActivatedRoute,
