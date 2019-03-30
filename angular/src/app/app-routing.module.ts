@@ -8,11 +8,12 @@ import { BoardGameEditComponent } from './board-game-edit/board-game-edit.compon
 const routes: Routes = [
   { path: '', component: MainViewComponent },
   { path: 'boardgames', component: BoardGameListComponent, pathMatch: 'full' },
+  { path: 'boardgames/:id', component: BoardGameListComponent, pathMatch: 'full' },
   { path: 'boardgames/:id/edit', component: BoardGameEditComponent, pathMatch: 'full' },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {enableTracing: true})],
+  imports: [RouterModule.forRoot(routes, {enableTracing: false})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

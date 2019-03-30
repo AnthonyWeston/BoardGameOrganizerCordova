@@ -40,6 +40,6 @@ export class BoardGameEditComponent implements OnInit {
       notes: this.notes
     });
 
-    this.router.navigate(['../..'], { relativeTo: this.route })
+    this.router.navigate(['../..', this.id], { relativeTo: this.route })
   }
 }

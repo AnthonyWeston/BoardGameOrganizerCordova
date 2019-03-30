@@ -2,7 +2,7 @@
   <img width="50%" src="{{boardGame.imageUrl}}" />
   <div>
     <div>
-      <a [routerLink]="[boardGame.id, 'edit']">
+      <a [routerLink]="['/', 'boardgames', boardGame.id, 'edit']">
         <button mat-icon-button color="primary">
           <mat-icon>edit</mat-icon>
         </button>

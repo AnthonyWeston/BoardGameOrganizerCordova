@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { BoardGameListService } from './board-game-list.service'
+import { BoardGameListService } from './board-game-list.service';
+import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-board-game-list',
@@ -8,8 +10,9 @@ import { BoardGameListService } from './board-game-list.service'
 })
 export class BoardGameListComponent implements OnInit {
   boardGames: Array<any>;
+  selectedId: number;
 
-  constructor(private boardGameListService: BoardGameListService) {
+  constructor(private boardGameListService: BoardGameListService, private activatedRoute: ActivatedRoute) {
 
   }
 
@@ -19,5 +22,10 @@ export class BoardGameListComponent implements OnInit {
 
   ngOnInit() {
     this.boardGames = this.boardGameListService.getBoardGames();
+
+    const idParam = this.activatedRoute.snapshot.paramMap.get('id')
+    if (idParam) {
+      this.selectedId = +idParam;
+    }
   }
 }
