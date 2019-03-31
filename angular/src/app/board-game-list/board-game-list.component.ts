@@ -1,7 +1,9 @@
+import { DialogNewBoardGameComponent } from '../dialog-new-board-game/dialog-new-board-game.component';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { Component, OnInit } from '@angular/core';
 import { BoardGameListService } from './board-game-list.service';
 import { ActivatedRoute } from '@angular/router';
-import { BoardGame } from '../board-game'
+import { BoardGame } from '../board-game';
 
 
 @Component({
@@ -13,7 +15,8 @@ export class BoardGameListComponent implements OnInit {
   boardGames: BoardGame[];
   selectedId: number;
 
-  constructor(private boardGameListService: BoardGameListService, private activatedRoute: ActivatedRoute) { }
+  constructor(private boardGameListService: BoardGameListService, private activatedRoute: ActivatedRoute,
+    private dialog: MatDialog) { }
 
   delete(id: number) {
     this.boardGameListService.deleteBoardGame(id);
@@ -22,6 +25,20 @@ export class BoardGameListComponent implements OnInit {
 
   refreshBoardGames() {
     this.boardGames = this.boardGameListService.getBoardGames();
+  }
+
+  showNewBoardGameDialog() {
+    const dialogRef = this.dialog.open(DialogNewBoardGameComponent, {
+      data: { }
+    });
+
+    dialogRef.afterClosed().subscribe((boardGame: BoardGame) => {
+      if (boardGame) {
+        this.boardGameListService.createNewBoardGame(boardGame);
+        this.boardGameListService.getBoardGames();
+      }
+    });
+
   }
 
   ngOnInit() {

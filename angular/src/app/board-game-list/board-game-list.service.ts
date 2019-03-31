@@ -16,7 +16,7 @@ export class BoardGameListService {
       type: 'Card game',
       minPlayers: 2,
       maxPlayers: 5,
-      notes: 'This game also has lots of cats!'
+      notes: 'This game has lots of cats!'
     },
     {
       id: 1,
@@ -63,5 +63,18 @@ export class BoardGameListService {
   deleteBoardGame(id: number) {
     const index = this.boardGames.map((boardGame: any) => boardGame.id).indexOf(id);
     this.boardGames.splice(index, 1);
+  }
+
+  createNewBoardGame(boardGame: BoardGame) {
+    const id = Math.max.apply(this.boardGames.map((boardGame: BoardGame) => boardGame.id));
+    this.boardGames.push({
+      id: id + 1,
+      title: boardGame.title,
+      imageUrl: boardGame.imageUrl,
+      type: boardGame.type,
+      minPlayers: boardGame.minPlayers,
+      maxPlayers: boardGame.maxPlayers,
+      notes: boardGame.notes
+    });
   }
 }

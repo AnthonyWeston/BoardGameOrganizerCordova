@@ -6,3 +6,9 @@
   </mat-expansion-panel-header>
   <app-board-game [boardGame]="boardGame" (deleted)=delete(boardGame.id)></app-board-game>
 </mat-expansion-panel>
+
+<div class="right">
+  <button mat-fab color="primary" (click)="showNewBoardGameDialog()">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>

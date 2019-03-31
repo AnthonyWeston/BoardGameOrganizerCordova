@@ -13,7 +13,8 @@ import { FormsModule} from '@angular/forms';
 import { MainViewComponent } from './main-view/main-view.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDialogModule } from '@angular/material';
-import { BoardGameEditComponent } from './board-game-edit/board-game-edit.component'
+import { BoardGameEditComponent } from './board-game-edit/board-game-edit.component';
+import { DialogNewBoardGameComponent } from './dialog-new-board-game/dialog-new-board-game.component'
 
 @NgModule({
   declarations: [
@@ -23,9 +24,11 @@ import { BoardGameEditComponent } from './board-game-edit/board-game-edit.compon
     MainViewComponent,
     DialogDeleteBoardGameComponent,
     BoardGameEditComponent,
+    DialogNewBoardGameComponent,
   ],
   entryComponents: [
     DialogDeleteBoardGameComponent,
+    DialogNewBoardGameComponent
   ],
   imports: [
     BrowserModule,

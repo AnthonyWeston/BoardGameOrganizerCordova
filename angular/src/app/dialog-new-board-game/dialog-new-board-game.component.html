@@ -1,0 +1,27 @@
+<mat-dialog-content>
+  <img width="50%" src="{{imageUrl}}" />
+
+  <mat-form-field>
+    <input matInput type="text" [(ngModel)]="boardGame.imageUrl" placeholder="Image URL"/>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput type="text" [(ngModel)]="boardGame.title" placeholder="Title"/>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput type="text" [(ngModel)]="boardGame.type" placeholder="Type"/>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput type="text" [(ngModel)]="boardGame.minPlayers" placeholder="Min Players"/>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput type="text" [(ngModel)]="boardGame.maxPlayers" placeholder="Max Players"/>
+  </mat-form-field>
+  <mat-form-field>
+      <textarea matInput [(ngModel)]="boardGame.notes" placeholder="Notes"></textarea>
+  </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button (click)="onCancelClick()" [mat-dialog-close]="'cancelled'">Cancel</button>
+  <button mat-button [mat-dialog-close]="boardGame" [disabled]="boardGameIsValid()" cdkFocusInitial>Save</button>
+</mat-dialog-actions>
