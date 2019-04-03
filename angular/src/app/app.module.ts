@@ -14,7 +14,8 @@ import { MainViewComponent } from './main-view/main-view.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDialogModule } from '@angular/material';
 import { BoardGameEditComponent } from './board-game-edit/board-game-edit.component';
-import { DialogNewBoardGameComponent } from './dialog-new-board-game/dialog-new-board-game.component'
+import { DialogNewBoardGameComponent } from './dialog-new-board-game/dialog-new-board-game.component';
+import { BoardGameExplorerComponent } from './board-game-explorer/board-game-explorer.component'
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { DialogNewBoardGameComponent } from './dialog-new-board-game/dialog-new-
     DialogDeleteBoardGameComponent,
     BoardGameEditComponent,
     DialogNewBoardGameComponent,
+    BoardGameExplorerComponent,
   ],
   entryComponents: [
     DialogDeleteBoardGameComponent,

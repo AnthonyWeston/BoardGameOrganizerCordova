@@ -27,7 +27,7 @@
   </mat-dialog-content>
 
   <mat-dialog-actions>
-    <button mat-button (click)="onCancelClick()" [mat-dialog-close]="'cancelled'"> Cancel </button>
+    <button mat-button (click)="closeDialog()" [mat-dialog-close]="'cancelled'"> Cancel </button>
     <button mat-button [mat-dialog-close]="boardGame" [disabled]="!newBoardGameForm.valid"
       color="primary"> Save </button>
   </mat-dialog-actions>

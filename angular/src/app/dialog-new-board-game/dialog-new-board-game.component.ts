@@ -36,7 +36,7 @@ export class DialogNewBoardGameComponent implements OnInit {
     };
   }
 
-  onCancelClick(): void {
+  closeDialog(): void {
     this.dialogRef.close();
   }
 
