@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BoardGameListService } from '../board-game-list/board-game-list.service';
 import { MatDialogRef } from '@angular/material';
 import { BoardGame } from '../board-game';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 
 @Component({
@@ -11,6 +12,14 @@ import { BoardGame } from '../board-game';
 })
 export class DialogNewBoardGameComponent implements OnInit {
   boardGame: BoardGame;
+  newBoardGameForm = new FormGroup({
+    imageUrl: new FormControl(''),
+    title: new FormControl('', Validators.required),
+    type: new FormControl(''),
+    minPlayers: new FormControl(''),
+    maxPlayers: new FormControl(''),
+    notes: new FormControl(''),
+  });
 
   constructor(private boardGameService: BoardGameListService,  public dialogRef: MatDialogRef<DialogNewBoardGameComponent>,
     ) { }
@@ -24,16 +33,11 @@ export class DialogNewBoardGameComponent implements OnInit {
       minPlayers: undefined,
       maxPlayers: undefined,
       notes: undefined
-    }
+    };
   }
 
   onCancelClick(): void {
     this.dialogRef.close();
-  }
-
-  boardGameIsValid() {
-    return !(this.boardGame.imageUrl && this.boardGame.title && this.boardGame.type &&
-      this.boardGame.minPlayers && this.boardGame.maxPlayers && this.boardGame.notes);
   }
 
 }

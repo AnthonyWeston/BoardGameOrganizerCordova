@@ -1,27 +1,34 @@
-<mat-dialog-content>
-  <img width="50%" src="{{imageUrl}}" />
+<form [formGroup]="newBoardGameForm">
+  <mat-dialog-content>
+    <mat-form-field>
+      <input matInput type="text" [(ngModel)]="boardGame.imageUrl" placeholder="Image URL"
+        formControlName="imageUrl"/>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" [(ngModel)]="boardGame.title" placeholder="Title"
+        formControlName="title" required/>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" [(ngModel)]="boardGame.type" placeholder="Type"
+        formControlName="type"/>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" [(ngModel)]="boardGame.minPlayers" placeholder="Min Players"
+        formControlName="minPlayers"/>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" [(ngModel)]="boardGame.maxPlayers" placeholder="Max Players"
+        formControlName="maxPlayers"/>
+    </mat-form-field>
+    <mat-form-field>
+        <textarea matInput [(ngModel)]="boardGame.notes" placeholder="Notes"
+          formControlName="notes"></textarea>
+    </mat-form-field>
+  </mat-dialog-content>
 
-  <mat-form-field>
-    <input matInput type="text" [(ngModel)]="boardGame.imageUrl" placeholder="Image URL"/>
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput type="text" [(ngModel)]="boardGame.title" placeholder="Title"/>
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput type="text" [(ngModel)]="boardGame.type" placeholder="Type"/>
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput type="text" [(ngModel)]="boardGame.minPlayers" placeholder="Min Players"/>
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput type="text" [(ngModel)]="boardGame.maxPlayers" placeholder="Max Players"/>
-  </mat-form-field>
-  <mat-form-field>
-      <textarea matInput [(ngModel)]="boardGame.notes" placeholder="Notes"></textarea>
-  </mat-form-field>
-</mat-dialog-content>
-
-<mat-dialog-actions>
-  <button mat-button (click)="onCancelClick()" [mat-dialog-close]="'cancelled'">Cancel</button>
-  <button mat-button [mat-dialog-close]="boardGame" [disabled]="boardGameIsValid()" cdkFocusInitial>Save</button>
-</mat-dialog-actions>
+  <mat-dialog-actions>
+    <button mat-button (click)="onCancelClick()" [mat-dialog-close]="'cancelled'"> Cancel </button>
+    <button mat-button [mat-dialog-close]="boardGame" [disabled]="!newBoardGameForm.valid"
+      color="primary"> Save </button>
+  </mat-dialog-actions>
+</form>

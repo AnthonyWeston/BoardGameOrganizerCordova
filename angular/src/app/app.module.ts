@@ -9,7 +9,7 @@ import { MatButtonModule, MatCardModule, MatGridListModule, MatInputModule,
   MatToolbarModule } from '@angular/material';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule} from '@angular/material/form-field';
-import { FormsModule} from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MainViewComponent } from './main-view/main-view.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDialogModule } from '@angular/material';
@@ -44,6 +44,7 @@ import { DialogNewBoardGameComponent } from './dialog-new-board-game/dialog-new-
     MatCardModule,
     MatExpansionModule,
     MatDialogModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
