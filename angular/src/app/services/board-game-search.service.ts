@@ -10,7 +10,7 @@ import { BoardGameSearchEntry } from '../board-game-search-entry';
 })
 export class BoardGameSearchService {
   private BoardGameSearchUrl = 'https://www.boardgamegeek.com/xmlapi2/search';
-
+  private BoardGameThingUrl = 'https://www.boardgamegeek.com/xmlapi2/thing';
 
   constructor(private http: HttpClient) { }
 
@@ -26,6 +26,21 @@ export class BoardGameSearchService {
       title: item.name[0].$.value,
     })).sort((boardGameEntry1: BoardGameSearchEntry, boardGameEntry2: BoardGameSearchEntry) =>
       boardGameEntry1.title.localeCompare(boardGameEntry2.title))
-    ))
+    ));
+  }
+
+  getBoardGame(apiId: number) {
+    const params = new HttpParams().set('id', apiId.toString());
+
+    return this.http.get(this.BoardGameThingUrl, { params, responseType: 'text' })
+    .pipe(switchMap(xmlString => bindNodeCallback(parseString)(xmlString)))
+    .pipe(map(parsedXml => parsedXml.items.item[0]))
+    .pipe(map(item => ({
+        id: undefined,
+        title: item.name[0].$.value,
+        imageUrl: item.image[0],
+        minPlayers: item.minplayers[0].$.value,
+        maxPlayers: item.maxplayers[0].$.value,
+    })));
   }
 }

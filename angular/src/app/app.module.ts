@@ -18,6 +18,7 @@ import { DialogNewBoardGameComponent } from './dialog-new-board-game/dialog-new-
 import { BoardGameExplorerComponent } from './board-game-explorer/board-game-explorer.component'
 import { HttpClientModule } from '@angular/common/http';
 import { MatDividerModule } from '@angular/material/divider';
+import { DialogSearchResultComponent } from './dialog-search-result/dialog-search-result.component';
 
 @NgModule({
   declarations: [
@@ -29,10 +30,12 @@ import { MatDividerModule } from '@angular/material/divider';
     BoardGameEditComponent,
     DialogNewBoardGameComponent,
     BoardGameExplorerComponent,
+    DialogSearchResultComponent,
   ],
   entryComponents: [
     DialogDeleteBoardGameComponent,
-    DialogNewBoardGameComponent
+    DialogNewBoardGameComponent,
+    DialogSearchResultComponent,
   ],
   imports: [
     BrowserModule,

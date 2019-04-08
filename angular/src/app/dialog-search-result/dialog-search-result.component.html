@@ -1,0 +1,8 @@
+<mat-dialog-content>
+  <app-board-game [boardGame]="boardGame" [hideButtons]="true"></app-board-game>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+<button mat-raised-button (click)="closeDialog()">Close</button>
+<button mat-raised-button (click)="addToCollection(boardGame)" color="primary">Add to Collection</button>
+</mat-dialog-actions>

@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { BoardGameSearchEntry } from '../board-game-search-entry';
 import { BoardGameSearchService } from '../services/board-game-search.service';
+import { BoardGame } from '../board-game';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { DialogSearchResultComponent } from '../dialog-search-result/dialog-search-result.component';
+
 
 @Component({
   selector: 'app-board-game-explorer',
@@ -11,7 +15,7 @@ export class BoardGameExplorerComponent implements OnInit {
   searchText: string;
   boardGameSearchResults: BoardGameSearchEntry[];
 
-  constructor(private boardGameSearchService: BoardGameSearchService) { }
+  constructor(private boardGameSearchService: BoardGameSearchService, private dialog: MatDialog) { }
 
   ngOnInit() {
   }
@@ -23,8 +27,14 @@ export class BoardGameExplorerComponent implements OnInit {
     );
   }
 
-  openDialog(id: number) : void {
-    console.log(id);
+  showSearchResultDialog(apiId: number) : void {
+    const dialogRef = this.dialog.open(DialogSearchResultComponent, {
+      data: { apiId }
+    });
+
+    dialogRef.afterClosed().subscribe((boardGame: BoardGame) => {
+
+    });
   }
 
 }

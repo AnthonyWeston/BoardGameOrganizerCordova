@@ -15,7 +15,6 @@ export class DialogNewBoardGameComponent implements OnInit {
   newBoardGameForm = new FormGroup({
     imageUrl: new FormControl(''),
     title: new FormControl('', Validators.required),
-    type: new FormControl(''),
     minPlayers: new FormControl(''),
     maxPlayers: new FormControl(''),
     notes: new FormControl(''),
@@ -29,7 +28,6 @@ export class DialogNewBoardGameComponent implements OnInit {
       id: undefined,
       imageUrl: undefined,
       title: undefined,
-      type: undefined,
       minPlayers: undefined,
       maxPlayers: undefined,
       notes: undefined

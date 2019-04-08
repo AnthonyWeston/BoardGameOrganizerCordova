@@ -38,7 +38,6 @@ export class BoardGameListComponent implements OnInit {
         this.boardGameListService.getBoardGames();
       }
     });
-
   }
 
   ngOnInit() {

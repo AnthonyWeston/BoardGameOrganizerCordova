@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter, Inject} from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { BoardGame } from '../board-game'
+import { BoardGame } from '../board-game';
 
 @Component({
   selector: 'app-board-game',
@@ -8,14 +8,13 @@ import { BoardGame } from '../board-game'
   styleUrls: ['./board-game.component.css']
 })
 export class BoardGameComponent implements OnInit {
-  @Input() boardGame: BoardGame;
-  @Input() notesDisabled: boolean;
+  @Input() boardGame?: BoardGame;
+  @Input() hideButtons: boolean;
   @Output() deleted = new EventEmitter();
 
   constructor(public dialog: MatDialog) {}
 
   ngOnInit() {
-    this.notesDisabled = true;
   }
 
   delete() {
