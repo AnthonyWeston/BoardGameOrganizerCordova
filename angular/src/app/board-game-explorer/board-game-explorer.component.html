@@ -1,6 +1,14 @@
-<div class="searchBar">
+<div class="search">
   <mat-form-field>
-    <input matInput type="search"/>
+    <input matInput type="search" [(ngModel)]="searchText"/>
   </mat-form-field>
-  <mat-icon>search</mat-icon>
+  <button mat-icon-button (click)="getSearchResults(searchText)">
+    <mat-icon>search</mat-icon>
+  </button>
+  <div class="results" *ngFor="let boardGameSearchResult of boardGameSearchResults">
+    <div (click)="openDialog(boardGameSearchResult.id)">
+      {{boardGameSearchResult.title}}
+    </div>
+    <mat-divider [inset]="true" *ngIf="!last"></mat-divider>
+  </div>
 </div>

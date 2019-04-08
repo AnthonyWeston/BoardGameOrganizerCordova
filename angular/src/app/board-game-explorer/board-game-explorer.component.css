@@ -1,7 +1,16 @@
-.searchBar {
+.search {
   text-align: center;
+  content-align: center;
 }
 
 mat-form-field  {
+  width: 65%;
+}
+
+.results div {
+  padding: 16px;
+}
+
+mat-divider {
   width: 65%;
 }

@@ -16,6 +16,8 @@ import { MatDialogModule } from '@angular/material';
 import { BoardGameEditComponent } from './board-game-edit/board-game-edit.component';
 import { DialogNewBoardGameComponent } from './dialog-new-board-game/dialog-new-board-game.component';
 import { BoardGameExplorerComponent } from './board-game-explorer/board-game-explorer.component'
+import { HttpClientModule } from '@angular/common/http';
+import { MatDividerModule } from '@angular/material/divider';
 
 @NgModule({
   declarations: [
@@ -47,6 +49,8 @@ import { BoardGameExplorerComponent } from './board-game-explorer/board-game-exp
     MatExpansionModule,
     MatDialogModule,
     ReactiveFormsModule,
+    HttpClientModule,
+    MatDividerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
